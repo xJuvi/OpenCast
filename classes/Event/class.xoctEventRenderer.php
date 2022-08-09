@@ -520,10 +520,10 @@ class xoctEventRenderer {
 	            return true;
             }
 	        if ($processing_state == Event::STATE_LIVE_SCHEDULED) {
-	            $start = $this->event->getScheduling()->getStart()->getTimestamp();
+	            $start = $this->event->getScheduling()->getStart()->setTimezone(new DateTimeZone(ilTimeZone::_getDefaultTimeZone()))->getTimestamp();
                 $accessible_before_start = ((int)PluginConfig::getConfig(PluginConfig::F_START_X_MINUTES_BEFORE_LIVE)) * 60;
                 $accessible_from = $start - $accessible_before_start;
-                $accessible_to = $this->event->getScheduling()->getEnd()->getTimestamp();
+                $accessible_to = $this->event->getScheduling()->getEnd()->setTimezone(new DateTimeZone(ilTimeZone::_getDefaultTimeZone()))->getTimestamp();
 	            return ($accessible_from < time()) && ($accessible_to > time());
             }
         }
