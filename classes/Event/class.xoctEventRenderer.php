@@ -1,7 +1,5 @@
 <?php
 
-use DateTimeZone;
-use ilTimeZone;
 use ILIAS\UI\Component\Component;
 use ILIAS\UI\Factory;
 use ILIAS\UI\Renderer;
