@@ -1,5 +1,7 @@
 <?php
 
+use DateTimeZone;
+use ilTimeZone;
 use ILIAS\UI\Component\Component;
 use ILIAS\UI\Factory;
 use ILIAS\UI\Renderer;
@@ -449,7 +451,7 @@ class xoctEventRenderer {
 	 * @return string
 	 */
 	public function getStartHTML($format = 'd.m.Y - H:i') {
-		return $this->event->getStart()->format($format);
+		return $this->event->getStart()>setTimezone(new DateTimeZone(ilTimeZone::_getDefaultTimeZone()))->->format($format);
 	}
 
     /**
